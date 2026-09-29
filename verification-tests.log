@@ -1,0 +1,33 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> jeweller-os@1.0.0 test
+> npm test --prefix backend
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> jeweller-os-backend@1.0.0 test
+> node --test --test-concurrency=1 tests/*.test.mjs
+
+✔ cost redaction, cashier restrictions and first-use API enforcement (1683.428008ms)
+✔ reservation blocks sales, release restores availability, partial return is append-only (137.634345ms)
+✔ stock audit keeps differences, reconciliation traces movements, branch transfer is scoped (97.741267ms)
+✔ plan expiry by date blocks writes, feature limits and user limits are effective (18.837574ms)
+✔ tenant scope, platform restriction and no public provisioning (3428.018278ms)
+✔ rate, inventory, sale, idempotency and immutable invoice profile (137.495257ms)
+✔ payment idempotency, old gold exchange and karigar accountability (103.226928ms)
+✔ expiry blocks writes, suspension revokes sessions, reset link is single use (1294.554503ms)
+✔ currency and weight round half-up at storage precision (1.303838ms)
+✔ PDF example: 8.50g at 38,000 plus making and stones, old-gold adjustment (0.659205ms)
+✔ making per gram, percent and wastage use explicit rounding (0.464387ms)
+✔ old gold applies deductions and converts tested purity (0.223731ms)
+✔ karigar reconciles finished + scrap + returned metal + wastage (0.187067ms)
+✔ daily reconciliation example has -1.500 g discrepancy (0.70322ms)
+✔ automatic local development database preserves records across restart (2746.850895ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12378.370703

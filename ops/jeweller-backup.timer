@@ -1,0 +1,8 @@
+[Unit]
+Description=Run Jeweller OS backup daily
+[Timer]
+OnCalendar=*-*-* 02:00:00 UTC
+Persistent=true
+RandomizedDelaySec=300
+[Install]
+WantedBy=timers.target

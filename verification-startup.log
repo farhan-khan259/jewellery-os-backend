@@ -1,0 +1,3 @@
+PASS: root npm run dev starts independent backend and frontend packages.
+PASS: React access page responds on port 5173.
+PASS: Vite /api proxy reaches Express and a real MongoDB replica set.

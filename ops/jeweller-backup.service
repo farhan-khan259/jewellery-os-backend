@@ -1,0 +1,9 @@
+[Unit]
+Description=Jeweller OS daily database backup
+After=network-online.target
+[Service]
+Type=oneshot
+User=jeweller
+EnvironmentFile=/etc/jeweller-os/backup.env
+ExecStart=/opt/jeweller-os/backend/ops/backup.sh
+UMask=0077
