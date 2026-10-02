@@ -12,9 +12,9 @@ The supplied PDF is the source specification. Its first three v2 access/admin pa
 | Isolation and permissions | Session-derived tenant/branch scope on APIs, records, documents and images; owner/manager/cashier/accountant/inventory/coordinator/auditor roles; owner-only cost/profit restrictions |
 | Languages | English, Urdu RTL, Roman English navigation and main forms; persisted user preference; bundled Urdu font; English/Urdu/bilingual invoice PDFs |
 | Rates | Manual 24K/22K/21K/18K and silver entries, automatic purity conversion, gram/tola input, immutable history and invoice-time snapshot |
-| Inventory | Weight, purity, category, making, wastage, stones, owner-only cost, location, photo uploads, search, status, table/gallery, reserve/release, QR tags, branch transfer, audited weight corrections |
+| Inventory | Weight, purity, category, making, wastage, stones, owner-only cost, location, photo uploads, search, status, table/gallery, reserve/release, printable SKU tags, branch transfer, audited weight corrections |
 | Sales | Search/select items, customer creation, server quote, mixed payment methods, discount/tax, customer credit, old-gold exchange, save/reopen drafts, atomic numbering/idempotency, double-sale prevention, invoice history |
-| Invoices | Shop branding snapshot, customer and rate snapshots, weight/making/stone/wastage detail, totals, exchange/credit, prior/current balance, payment breakdown, signatures, protected QR, A4/80mm PDF |
+| Invoices | Shop branding snapshot, customer and rate snapshots, weight/making/stone/wastage detail, totals, exchange/credit, prior/current balance, payment breakdown, signatures, A4/80mm PDF |
 | Returns | Append-only line returns, customer credit/refund, stock restoration, audit reason; reviewed full void on unlinked invoices |
 | Customers | Profile, opening balance, credit limit, payments and ledger, printable statement, separate amanat gold deposit/return ledger |
 | Old gold | Purity, deductions, testing loss, pure equivalent, valuation, cash/exchange, separate remaining stock, purchase PDF |

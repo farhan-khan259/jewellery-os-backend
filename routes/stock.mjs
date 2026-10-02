@@ -1,5 +1,4 @@
 import { Router } from "express";
-import QRCode from "qrcode";
 import {
   Record,
   Sale,
@@ -102,8 +101,7 @@ stock.post("/inventory/:id/transfer", permit("inventory"), async (req, res) => {
   res.json({ ok: true });
 });
 stock.get("/inventory/:id/tag", permit("inventory"), async (req, res) => {
-  const item = await findRecord(req, "inventory", req.params.id),
-    qr = await QRCode.toDataURL(item.key);
+  const item = await findRecord(req, "inventory", req.params.id);
   const escape = (s) =>
     String(s)
       .replaceAll("&", "&amp;")
@@ -111,7 +109,7 @@ stock.get("/inventory/:id/tag", permit("inventory"), async (req, res) => {
       .replaceAll(">", "&gt;");
   const html = frame(
     item.key,
-    `<div style="width:55mm;border:1px solid #ddd;padding:10px;text-align:center"><img src="${qr}" width="110" height="110"><h2>${escape(item.key)}</h2><p>${escape(item.data.name)}</p><p>${item.data.purity}K · ${(item.data.netMg / 1000).toFixed(3)} g</p></div>`,
+    `<div style="width:55mm;border:1px solid #ddd;padding:10px;text-align:center"><h2>${escape(item.key)}</h2><p>${escape(item.data.name)}</p><p>${item.data.purity}K · ${(item.data.netMg / 1000).toFixed(3)} g</p></div>`,
   );
   await sendDocument(req, res, html);
 });

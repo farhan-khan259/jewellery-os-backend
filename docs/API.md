@@ -64,7 +64,7 @@ The response includes the generated temporary password once. It is not stored in
 | POST | `/cash-adjustments` | Owner capital/opening/cash-bank adjustment with reason |
 | POST | `/inventory/:id/reserve` | Reserve/release stock |
 | POST | `/inventory/:id/transfer` | Transfer to an authorised tenant branch |
-| GET | `/inventory/:id/tag` | Printable SKU/QR tag PDF |
+| GET | `/inventory/:id/tag` | Printable SKU tag PDF |
 | POST | `/audits` | Create a snapshot of expected branch inventory |
 | POST | `/audits/:id/scan` | Scan SKU and measured grams |
 | POST | `/audits/:id/close` | Preserve missing/unexpected/mismatch results and resolution |
