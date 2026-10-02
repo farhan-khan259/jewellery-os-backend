@@ -29,12 +29,11 @@
     "mongoose": "^8.19.0",
     "multer": "^2.0.2",
     "playwright": "1.55.0",
-    "qrcode": "^1.5.4",
     "zod": "^4.1.0"
   },
   "devDependencies": {
+    "mongodb": "6.21.0",
     "mongodb-memory-server": "^10.2.0",
-    "supertest": "^7.1.0",
-    "mongodb": "6.21.0"
+    "supertest": "^7.1.0"
   }
 }
