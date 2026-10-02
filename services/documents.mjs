@@ -1,6 +1,5 @@
 import fs from "node:fs";
 import { chromium } from "playwright";
-import QRCode from "qrcode";
 import { Sale, Record, Attachment } from "../db.mjs";
 import { scope, fail, findRecord } from "../security.mjs";
 import { attachmentBytes } from "../routes/attachments.mjs";
@@ -24,6 +23,7 @@ const cash = (v) =>
     }),
   weight = (v) => (Number(v || 0) / 1000).toFixed(3);
 export function frame(title, body, thermal = false) {
+  body = body.replace(/<img class="qr"[^>]*>/g, "");
   return `<!DOCTYPE html><html><head><meta charset="utf-8"><title>${esc(title)}</title><style>@font-face{font-family:InvoiceArabic;src:url(data:font/ttf;base64,${arabicFont})} [dir=rtl]{font-family:InvoiceArabic,Arial,sans-serif} @page{size:${thermal ? "80mm auto" : "A4"};margin:${thermal ? "5mm" : "14mm"}}*{box-sizing:border-box}body{font:12px Arial,InvoiceArabic,sans-serif;color:#17312a;margin:0;line-height:1.45}h1,h2,p{margin:0 0 8px}h1{font-size:26px}small{color:#63736c}header{display:flex;justify-content:space-between;border-bottom:3px solid #b58b3f;padding-bottom:16px;margin-bottom:16px}header img{max-width:90px;max-height:70px;object-fit:contain}table{width:100%;border-collapse:collapse;margin:14px 0}th{text-align:start;background:#edf2ef}td,th{padding:8px 6px;border-bottom:1px solid #dde5e0;vertical-align:top}td.num{text-align:end;white-space:nowrap}tfoot{font-weight:bold}.totals{margin-inline-start:auto;width:50%}.totals div{display:flex;justify-content:space-between;padding:4px}.grand{background:#17312a;color:white;padding:10px!important}footer{break-inside:avoid;margin-top:24px;border-top:1px solid #dde5e0;padding-top:15px}.signatures{display:flex;justify-content:space-between;margin-top:35px}.signatures span{border-top:1px solid #a1aea6;padding-top:8px;min-width:150px}.qr{width:70px;height:70px}tr{break-inside:avoid}${thermal ? "body{font-size:10px}header{display:block}h1{font-size:18px}table{font-size:9px}td,th{padding:4px 2px}.totals{width:100%}.signatures{display:none}" : ""}@media print{button{display:none}}</style></head><body>${body}</body></html>`;
 }
 export async function invoiceHTML(req) {
@@ -45,9 +45,7 @@ export async function invoiceHTML(req) {
     if (a)
       logo = `<img src="data:${a.mime};base64,${(await attachmentBytes(a)).toString("base64")}"/>`;
   }
-  const qr = await QRCode.toDataURL(
-    `${process.env.APP_ORIGIN || "http://localhost:4000"}/app/sales/${s._id}`,
-  );
+  const qr = "";
   const lineRows = s.lines
     .map((l) =>
       thermal
